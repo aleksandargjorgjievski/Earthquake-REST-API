@@ -25,7 +25,7 @@ public class EarthquakeService {
 
     @Scheduled(fixedRate = 3600000)
     public void fetchEarthquakes() {
-        System.out.println("Fetching earthquakes...");
+        System.out.println("Fetching earthquakes");
         webClient.get().uri("/earthquakes/feed/v1.0/summary/all_hour.geojson")
                 .retrieve()
                 .bodyToMono(EarthquakeDto.class)

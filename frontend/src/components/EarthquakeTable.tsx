@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 
 const EarthquakeTable = ({ earthquakes }) => {
     return (
-        <TableContainer component={Paper} sx={{ marginTop: 2, display: 'flex', justifyContent: 'center'}}>
+        <TableContainer  sx={{ marginTop: 2, display: 'flex', justifyContent: 'center'}}>
             <Table sx={{ maxWidth: 750 }} aria-label="simple table">
                 <TableHead sx={{ background: 'rgb(0 131 40 / 0.47)'}}>
                     <TableRow>

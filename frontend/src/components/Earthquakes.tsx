@@ -1,15 +1,8 @@
 import {useState, useEffect} from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
 import EarthquakeService from '../services/EarthquakeService.tsx'
 import HttpClient from '../serviceClients/HttpClient.tsx';
 import EarthquakeTable from "./EarthquakeTable.tsx";
+import FilterButtons from "./FilterButtons.tsx";
 
 
 const Earthquakes = () => {
@@ -27,9 +20,38 @@ const Earthquakes = () => {
         }
         fetchEarthquakes();
     }, []);
+
+    const fetchEarthquakesByMagnitude = async (magnitude) => {
+        const earthquakeService = new EarthquakeService(HttpClient);
+        try{
+            const earthquakes = await earthquakeService.getEarthquakeByMagnitude(magnitude);
+            setEarthquakes(earthquakes);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+
+    const fetchEarthquakesByTime = async (time) => {
+        const earthquakeService = new EarthquakeService(HttpClient);
+        try{
+            const earthquakes = await earthquakeService.getEarthquakeByTime(time);
+            setEarthquakes(earthquakes);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+        <FilterButtons
+            fetchEarthquakesByMagnitude={fetchEarthquakesByMagnitude}
+            fetchEarthquakesByTime={fetchEarthquakesByTime}
+        />
         <EarthquakeTable earthquakes={earthquakes}></EarthquakeTable>
-    )
-}
+        </div>
+    );
+};
 
 export default Earthquakes;

@@ -23,4 +23,14 @@ public class EarthquakeController {
     public List<Earthquake> getAllEarthquakes() {
         return earthquakeRepository.findAll();
     }
+
+    @GetMapping("/filter")
+    public List<Earthquake> getEarthquakesByMagnitude(Double magnitude) {
+        return earthquakeRepository.findByMagnitudeGreaterThan(magnitude);
+    }
+
+    @GetMapping("/filter/time")
+    public List<Earthquake> getEarthquakesByTime(long time) {
+        return earthquakeRepository.findByTimeAfter(time);
+    }
 }

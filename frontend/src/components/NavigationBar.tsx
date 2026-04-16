@@ -3,13 +3,13 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavigationBar() {
     return (
-        <>
-            <Navbar className="bg-body-tertiary">
-                <Container style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Navbar.Brand style={{ fontSize: '32px', }}>Earthquake Data</Navbar.Brand>
-                </Container>
-            </Navbar>
-        </>
+        <Navbar expand="lg" style={{ backgroundColor: '#2c3e50', marginBottom: '20px' }} variant="dark" className="shadow-sm">
+            <Container>
+                <Navbar.Brand style={{ fontSize: '24px', fontWeight: 'bold', color: '#ecf0f1', display: 'flex', justifyContent: 'center' }}>
+                    Earthquake Data
+                </Navbar.Brand>
+            </Container>
+        </Navbar>
     );
 }
 

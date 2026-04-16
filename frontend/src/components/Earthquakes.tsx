@@ -45,18 +45,28 @@ const Earthquakes = () => {
     };
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div style={{ display: "flex", gap: "1rem", alignItems: "stretch", minHeight: "90vh" }}>
-                <div style={{ flex: 1 }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px 40px 20px' }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
                     <FilterButtons
                         fetchEarthquakesByMagnitude={fetchEarthquakesByMagnitude}
                         fetchEarthquakesByTime={fetchEarthquakesByTime}
                     />
-                    <EarthquakeTable earthquakes={earthquakes} />
                 </div>
+                
+                <div style={{ 
+                    display: "grid", 
+                    gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))", 
+                    gap: "2rem",
+                    alignItems: "start"
+                }}>
+                    <div style={{ width: '100%' }}>
+                        <EarthquakeTable earthquakes={earthquakes} />
+                    </div>
 
-                <div style={{ flex: 1, minWidth: 400, display: "flex", justifyContent: "center", alignItems: "center"}}>
-                    <EarthquakeMap earthquakes={earthquakes} />
+                    <div style={{ width: '100%' }}>
+                        <EarthquakeMap earthquakes={earthquakes} />
+                    </div>
                 </div>
             </div>
         </div>

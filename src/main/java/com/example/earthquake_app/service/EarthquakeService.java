@@ -31,6 +31,7 @@ public class EarthquakeService {
                 .bodyToMono(EarthquakeDto.class)
                 .map(this::mapToEntities)
                         .subscribe(entities -> {
+                            earthquakeRepository.deleteAllInBatch();
                             earthquakeRepository.saveAll(entities);
                             System.out.println("Data successfully saved to the database!");
                         });

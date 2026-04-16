@@ -46,6 +46,12 @@ public class EarthquakeService {
             earthquake.setMagnitude(feature.getProperties().getMag());
             earthquake.setMagType(feature.getProperties().getMagType());
             earthquake.setTime(feature.getProperties().getTime());
+
+            if (feature.getGeometry() != null) {
+                earthquake.setLongitude(feature.getGeometry().getLongitude());
+                earthquake.setLatitude(feature.getGeometry().getLatitude());
+            }
+
             return earthquake;
         }).collect(Collectors.toList());
     }

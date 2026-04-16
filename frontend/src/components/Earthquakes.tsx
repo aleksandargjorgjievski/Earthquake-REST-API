@@ -3,6 +3,7 @@ import EarthquakeService from '../services/EarthquakeService.tsx'
 import HttpClient from '../serviceClients/HttpClient.tsx';
 import EarthquakeTable from "./EarthquakeTable.tsx";
 import FilterButtons from "./FilterButtons.tsx";
+import EarthquakeMap from "./EarthquakeMap.tsx";
 
 
 const Earthquakes = () => {
@@ -44,12 +45,20 @@ const Earthquakes = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column'}}>
-        <FilterButtons
-            fetchEarthquakesByMagnitude={fetchEarthquakesByMagnitude}
-            fetchEarthquakesByTime={fetchEarthquakesByTime}
-        />
-        <EarthquakeTable earthquakes={earthquakes}></EarthquakeTable>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "1rem", alignItems: "stretch", minHeight: "90vh" }}>
+                <div style={{ flex: 1 }}>
+                    <FilterButtons
+                        fetchEarthquakesByMagnitude={fetchEarthquakesByMagnitude}
+                        fetchEarthquakesByTime={fetchEarthquakesByTime}
+                    />
+                    <EarthquakeTable earthquakes={earthquakes} />
+                </div>
+
+                <div style={{ flex: 1, minWidth: 400, display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <EarthquakeMap earthquakes={earthquakes} />
+                </div>
+            </div>
         </div>
     );
 };

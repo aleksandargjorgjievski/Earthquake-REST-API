@@ -35,7 +35,7 @@ npm run dev
 If you can't run the backend from the terminal then just run `EarthquakeAppApplication.main()` from an IDE that supports Java.
 ## Implementations
 ### Map
-Implemented a map that gets the geometry data from the postgreSQL and uses it to show the earthquakes visually.
+Implemented a map that gets the geometry data from the postgreSQL database and uses it to show the earthquakes visually.
 The earthquakes on the map are represented as circles.
 Depending on the magnitude of the earthquake, the circles change color so the user can easly see if the earthquake is dangeorus or not.
 If the user clicks on the circle marker, a window will appear that displays the relevant information about the earthquake.

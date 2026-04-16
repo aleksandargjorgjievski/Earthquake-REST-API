@@ -37,7 +37,7 @@ public class EarthquakeService {
                         });
     }
 
-    private List<Earthquake> mapToEntities(EarthquakeDto response) {
+    protected List<Earthquake> mapToEntities(EarthquakeDto response) {
         return response.getFeatures().stream().map(feature ->{
             Earthquake earthquake = new Earthquake();
             earthquake.setId(feature.getId());

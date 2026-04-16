@@ -16,5 +16,12 @@ public class GeometryDto {
     public double getDepth () {
         return coordinates[2];
     }
-
+    public double setLongitude (double longitude) {
+        coordinates[0] = longitude;
+        return coordinates[0];
+    }
+    public double setLatitude (double latitude) {
+        coordinates[1] = latitude;
+        return coordinates[1];
+    }
 }
